@@ -1,0 +1,148 @@
+.publicProfilePage {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: var(--gradient-color-one);
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s ease-in-out;
+}
+
+.backButton:hover {
+  color: var(--accent-color);
+}
+
+.usernameHeader {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.profileSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 30px;
+}
+
+.profilePictureFrame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 3px solid var(--primary-color);
+}
+
+.profilePicture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section {
+  margin-bottom: 30px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 25px;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.mountainList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mountainItem {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mountainItem:last-child {
+  border-bottom: none;
+}
+
+.mountainLink {
+  color: var(--gradient-color-one);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.mountainLink:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Social Links */
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px; /* Space above bio */
+}
+
+.socialIcon {
+  font-size: 1.8rem; /* Adjust size of icons */
+  color: var(--secondary-text-color); /* Default icon color */
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-decoration: none; /* Remove underline */
+}
+
+.socialIcon:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Specific colors for social icons (optional, adjust as needed) */
+.socialIcon.instagram:hover {
+  color: #E4405F; /* Instagram pink/red */
+}
+
+.socialIcon.youtube:hover {
+  color: #FF0000; /* YouTube red */
+}
+
+.socialIcon.website:hover {
+  color: var(--gradient-color-one); /* Google blue for generic website */
+}
+
+.error {
+  color: var(--error-color);
+  text-align: center;
+  padding: 20px;
+}

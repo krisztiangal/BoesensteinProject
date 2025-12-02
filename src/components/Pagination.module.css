@@ -1,0 +1,167 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.pageItem {
+    background-color: var(--earth-300);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.pageItem:hover:not(:disabled) {
+    background-color: var(--terracotta-light);
+    color: var(--light-text-color);
+    border-color: var(--terracotta);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pageItem.active {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 0 2px rgba(212, 129, 102, 0.3);
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+}
+
+.pageItem:first-child:hover:not(:disabled),
+.pageItem:last-child:hover:not(:disabled) {
+    background-color: var(--terracotta);
+}
+
+/* Ellipsis for skipped pages (if you add it later) */
+.pageItem.ellipsis {
+    background: transparent;
+    border: none;
+    cursor: default;
+    width: auto;
+}
+
+.pageItem.ellipsis:hover {
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animation for active state */
+.pageItem.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    opacity: 0.5;
+    border-radius: inherit;
+}
+
+/* Hover effect enhancement */
+.pageItem:hover:not(:disabled)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.pageItem:hover:not(:disabled):hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .pageItem {
+      background-color: var(--earth-400);
+      color: var(--earth-900);
+      border-color: var(--earth-500);
+    }
+
+    .pageItem:hover:not(:disabled) {
+      background-color: var(--terracotta); /* Bison Hide */
+      color: var(--background-color); /* Woody Brown */
+      border-color: var(--terracotta);
+    }
+
+    .pageItem.active {
+      background-color: var(--accent-color); /* Bison Hide */
+      color: var(--background-color); /* Woody Brown */
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(197, 182, 166, 0.4);
+    }
+
+    .pageItem.active:hover {
+      background-color: var(--terracotta-dark); /* Lighter Bison Hide */
+    }
+
+    .pageItem:first-child,
+    .pageItem:last-child {
+      background-color: var(--earth-300);
+    }
+
+    .pageItem:disabled {
+      background-color: var(--earth-600);
+      color: var(--earth-700);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .pagination {
+      gap: 0.25rem;
+      padding: 1.5rem 0;
+    }
+
+    .pageItem {
+      width: 38px;
+      height: 38px;
+      font-size: 0.9rem;
+    }
+
+    .pageItem:first-child,
+    .pageItem:last-child {
+      width: 40px;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pageItem {
+      width: 34px;
+      height: 34px;
+      font-size: 0.85rem;
+    }
+
+    .pageItem:first-child,
+    .pageItem:last-child {
+      width: 36px;
+    }
+  }

@@ -1,0 +1,263 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--dark-overlay-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  background-color: var(--modal-bg-color); /* Explicitly set opaque background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1001; /* Ensure content is above the overlay */
+  animation: slideIn 0.3s ease-out;
+  color: var(--text-color);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--primary-color);
+}
+
+.modalBody {
+  text-align: center;
+}
+
+.modalBody h2 {
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.currentUserInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.currentUserPfp {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.currentUsername {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.menuSection {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.menuSection:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.menuSection h3 {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: 15px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+
+.input { /* Consolidated and explicitly colored */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  background-color: var(--background-color); /* A light, but not pure white background */
+  color: var(--secondary-text-color); /* Explicitly set a dark text color */
+}
+
+.input::placeholder {
+  color: var(--secondary-text-color);
+}
+
+.submitBtn, .menuButton {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color); /* Assuming --primary-color is distinct */
+  color: var(--light-text-color);
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.submitBtn:hover, .menuButton:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.submitBtn:disabled, .menuButton:disabled {
+  background-color: var(--button-disabled-bg);
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--error-color);
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.comingSoonText {
+  color: var(--secondary-text-color);
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.logoutSection {
+  margin-top: 25px;
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--error-color);
+  color: var(--light-text-color);
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background-color: var(--error-color-dark);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Styles for Social Links Form */
+.socialInputGroup {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.socialInputGroup select { /* Consolidated and explicitly colored */
+  flex: 1;
+  min-width: 120px;
+  padding: 10px; /* Ensure padding is consistent with .input */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  background-color: var(--background-color);
+  color: var(--secondary-text-color);
+}
+
+.socialInputGroup input { /* Consolidated and explicitly colored */
+  flex: 2;
+  min-width: 150px;
+  padding: 10px; /* Ensure padding is consistent with .input */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  background-color: var(--background-color);
+  color: var(--secondary-text-color);
+}
+
+.removeSocialBtn { /* Consolidated and explicitly colored */
+  background-color: var(--error-color); /* A distinct red for remove */
+  color: var(--light-text-color);
+  border: none;
+  border-radius: var(--border-radius-small);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.removeSocialBtn:hover {
+  background-color: var(--error-color-dark); /* Darker red on hover */
+}
+
+.addSocialBtn { /* Consolidated and explicitly colored */
+  width: 100%;
+  padding: 10px;
+  background-color: var(--upload-more-btn-bg); /* A distinct blue for add */
+  color: var(--light-text-color);
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 5px;
+}
+
+.addSocialBtn:hover {
+  background-color: var(--upload-more-btn-hover-bg); /* Darker blue on hover */
+}
+
+/* Responsive adjustments for social input group */
+@media (max-width: 480px) {
+  .socialInputGroup {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .socialInputGroup select,
+  .socialInputGroup input,
+  .removeSocialBtn {
+    width: 100%;
+  }
+}

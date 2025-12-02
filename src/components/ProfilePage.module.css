@@ -1,0 +1,248 @@
+.profilePage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.notLoggedIn {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--background-color);
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.notLoggedIn h2 {
+  color: var(--primary-color-dark);
+  margin-bottom: 1rem;
+}
+
+.notLoggedIn p {
+  color: var(--secondary-text-color);
+  font-size: 1.1rem;
+}
+
+.profileHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+  display: flex; /* Enable flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.profileHeader h1 {
+  color: var(--primary-color-dark);
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.username {
+  color: var(--gradient-color-one);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.profilePictureFrame {
+  width: 120px; /* Define a fixed size for the frame */
+  height: 120px;
+  border-radius: 50%; /* Make it circular */
+  overflow: hidden; /* Clip the image within the circle */
+  margin-bottom: 1.5rem; /* Space between picture and text */
+  border: 3px solid var(--gradient-color-one); /* Optional: add a border */
+  box-shadow: var(--box-shadow); /* Optional: add a subtle shadow */
+}
+
+.profilePicture {
+  width: 100%; /* Make the image fill its frame */
+  height: 100%;
+  object-fit: cover; /* Cover the area without distorting aspect ratio */
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statCard {
+  background: var(--accent-color);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.statCard h3 {
+  font-size: 2.5rem;
+  color: var(--background-color);
+  margin: 0 0 0.5rem 0;
+}
+
+.statCard p {
+  color: var(--background-color);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* New styles for ranked stat cards */
+.statCardRanked {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    padding: 10%;
+}
+.statCardRanked h3 {
+  font-size: 1.8rem;
+  color: var(--gradient-color-one);
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.statCardRanked h3 .rankPosition {
+  font-size: 0.9em; /* Make the rank position slightly smaller than the value */
+  font-weight: normal;
+  color: var(--tertiary-text-color);
+}
+
+.statCardRanked p {
+  font-size: 0.9rem; /* Smaller font for description */
+  color: var(--secondary-text-color);
+  margin: 0;
+  font-weight: 500;
+}
+
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.section h2 {
+  color: var(--primary-color-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--gradient-color-one);
+  padding-bottom: 0.5rem;
+}
+
+.mountainsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.mountainCard {
+  background: var(--modal-bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--mountain-card-box-shadow-normal);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border-color);
+}
+
+.mountainCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mountain-card-hover-box-shadow);
+}
+
+.mountainCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.cardContent h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--mountain-card-title-color);
+  font-size: 1.2rem;
+}
+
+.cardContent p {
+  margin: 0.25rem 0;
+  color: var(--mountain-card-text-color);
+}
+
+.equipment {
+  font-size: 0.9rem;
+  color: var(--tertiary-text-color);
+  margin-top: 0.5rem !important;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--background-color);
+  border-radius: 8px;
+  color: var(--empty-state-text-color);
+}
+
+.emptyState p {
+  margin: 0.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profilePage {
+    padding: 1rem;
+  }
+
+  .profileHeader h1 {
+    font-size: 2rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .mountainsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section h2 {
+    font-size: 1.3rem;
+  }
+}
+/* Social Links */
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+.socialIcon {
+  font-size: 1.8rem; /* Adjust size of icons */
+  color: var(--secondary-text-color); /* Default icon color */
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-decoration: none; /* Remove underline */
+}
+
+.socialIcon:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Specific colors for social icons (optional, adjust as needed) */
+.socialIcon.instagram:hover {
+  color: #E4405F; /* Instagram pink/red */
+}
+
+.socialIcon.youtube:hover {
+  color: #FF0000; /* YouTube red */
+}
+
+.socialIcon.website:hover {
+  color: #4285F4; /* Google blue for generic website */
+}

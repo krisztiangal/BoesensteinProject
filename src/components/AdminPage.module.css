@@ -1,0 +1,143 @@
+
+
+.adminPage {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: var(--secondary-text-color);
+}
+
+.adminPage h1 {
+    text-align: center;
+    color: var(--primary-color-dark);
+    margin-bottom: 40px;
+}
+
+.section {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.section h2 {
+    color: var(--primary-color-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mountainDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.listItem:last-child {
+    border-bottom: none;
+}
+
+.deleteButton {
+    background-color: var(--error-color);
+    color: var(--modal-bg-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.deletePictureButton {
+    background-color: var(--filter-indicator-color);
+    color: var(--secondary-text-color);
+    border: none;
+    padding: 5px 8px;
+    font-size: 0.8em;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.deletePictureButton:hover {
+    background-color: #f1c40f;
+}
+
+.deleteButton:hover {
+    background-color: var(--error-color-dark);
+}
+
+.filter {
+    margin-bottom: 20px;
+}
+
+.filter label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    min-width: 200px;
+}
+
+.imageGalleryAdmin {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.imageGalleryAdmin h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-text-color);
+    font-size: 1em;
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.imageItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+    background-color: var(--modal-bg-color);
+    box-shadow: var(--box-shadow);
+}
+
+.adminImagePreview {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,49 @@
+.userCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--modal-bg-color);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center;
+}
+
+.userCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--mountain-card-hover-box-shadow);
+}
+
+.userPfp {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid var(--btn-secondary-bg); /* Border color from app's theme */
+}
+
+.userInfo {
+    flex-grow: 1; /* Allow user info to take available space */
+}
+
+.nickname {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--primary-color-dark);
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.username {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

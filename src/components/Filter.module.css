@@ -1,0 +1,394 @@
+/* Filter Popup Styles */
+.filterContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.filterTriggerBtn {
+  background: var(--terracotta);
+  color: var(--light-text-color);
+  border: 2px solid var(--terracotta);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filterTriggerBtn:hover {
+  background: var(--terracotta-dark);
+  border-color: var(--terracotta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.filterTriggerBtn:active {
+  transform: translateY(0);
+}
+
+.filterIndicator {
+  color: var(--filter-indicator-color);
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.filterPopupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--filter-popup-overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.filterPopup {
+  background: var(--modal-bg-color);
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: var(--filter-popup-shadow);
+  animation: popupAppear 0.2s ease-out;
+}
+
+@keyframes popupAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.filterPopupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterPopupHeader h3 {
+  margin: 0;
+  color: var(--primary-color-dark);
+}
+
+.closePopupBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--secondary-text-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.closePopupBtn:hover {
+  background: var(--background-color);
+  color: var(--primary-color-dark);
+}
+
+.filterPopupContent {
+  padding: 1.5rem;
+}
+
+.filterPopupActions {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  justify-content: flex-end;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, var(--gradient-color-one) 0%, var(--gradient-color-two) 100%);
+  color: var(--light-text-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnPrimary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 129, 102, 0.3);
+}
+
+.btnPrimary:hover::before {
+  left: 100%;
+}
+
+.btnSecondary {
+  background: var(--earth-400);
+  color: var(--text-color);
+  border: 2px solid var(--earth-500);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btnSecondary:hover {
+  background: var(--earth-500);
+  color: var(--light-text-color);
+  border-color: var(--terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btnSecondary:active {
+  transform: translateY(0);
+}
+
+/* Add a subtle "reset" icon effect on hover */
+.btnSecondary::after {
+  content: '↺';
+  position: absolute;
+  right: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover::after {
+  right: 15px;
+  opacity: 0.7;
+}
+/* Filter group styles */
+.filterGroup {
+  margin-bottom: 1.5rem;
+}
+
+.filterLabel {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  background-color: var(--modal-bg-color);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: var(--input-focus-shadow);
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.radioLabel:hover {
+  background: var(--background-color);
+}
+
+.radioInput {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  border: 2px solid var(--border-dark);
+  border-radius: 50%;
+  background-color: var(--modal-bg-color);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.radioInput:checked {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.radioInput:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--light-text-color);
+  border-radius: 50%;
+}
+
+.radioInput:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(212, 129, 102, 0.1);
+}
+
+.radioInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 129, 102, 0.2);
+}
+
+.radioText {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+.radioLabel:hover .radioText {
+  color: var(--accent-color);
+}
+
+.activeFilters {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.activeFilters h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: var(--secondary-text-color);
+}
+
+.filterTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterTag {
+  background: var(--gradient-color-one);
+  color: var(--light-text-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.noFilters {
+  color: var(--btn-secondary-bg);
+  font-style: italic;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .filterTriggerBtn {
+    background: var(--terracotta); /* Bison Hide */
+    color: var(--light-text-color); /* Woody Brown */
+    border-color: var(--terracotta);
+  }
+
+  .filterTriggerBtn:hover {
+    background: var(--terracotta-dark); /* Lighter Bison Hide */
+    border-color: var(--terracotta-dark);
+  }
+
+  .filterSelect {
+    background-color: var(--earth-300);
+    color: var(--earth-900);
+    border-color: var(--earth-500);
+  }
+
+  .radioLabel:hover {
+    background: var(--earth-400);
+  }
+  .radioInput {
+      background-color: var(--earth-300);
+      border-color: var(--earth-600);
+    }
+
+    .radioInput:checked {
+      border-color: var(--accent-color); /* Bison Hide */
+      background-color: var(--accent-color);
+    }
+
+    .radioInput:checked::after {
+      background-color: var(--background-color); /* Woody Brown */
+    }
+
+    .radioInput:hover {
+      border-color: var(--terracotta-light);
+    }
+
+    .radioText {
+      color: var(--earth-900); /* White Rock */
+    }
+
+    .radioLabel:hover .radioText {
+      color: var(--terracotta-light);
+    }
+
+    .btnSecondary {
+      background: var(--earth-600);
+      color: var(--earth-900);
+      border-color: var(--earth-700);
+    }
+
+    .btnSecondary:hover {
+      background: var(--earth-700);
+      color: var(--light-text-color);
+      border-color: var(--terracotta);
+    }
+
+    .btnPrimary {
+      background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
+    }
+
+    .btnPrimary:hover {
+      box-shadow: 0 4px 15px rgba(197, 182, 166, 0.3);
+    }
+}

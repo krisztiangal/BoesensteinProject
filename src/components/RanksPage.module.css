@@ -1,0 +1,299 @@
+.ranksPage {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+.title {
+  text-align: center;
+  color: var(--primary-color-dark);
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  text-shadow: var(--text-shadow);
+}
+
+.rankSection {
+  background-color: var(--accent-color); /* Changed to accent color */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-medium);
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.rankSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--terracotta-light), var(--terracotta), var(--terracotta-dark));
+  opacity: 0.7;
+}
+
+.rankSection:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.rankSection h2 {
+  color: var(--background-color); /* Changed to background color for contrast */
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.rankSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--background-color);
+  border-radius: 2px;
+}
+
+.rankList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rankItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease;
+  border-radius: var(--border-radius-small);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.rankItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.rankItem:last-child {
+  border-bottom: none;
+}
+
+/* Medal positions */
+.rankItem:nth-child(1) .rankPosition {
+  color: #FFD700; /* Gold */
+  font-size: 1.3rem;
+}
+
+.rankItem:nth-child(2) .rankPosition {
+  color: #C0C0C0; /* Silver */
+  font-size: 1.25rem;
+}
+
+.rankItem:nth-child(3) .rankPosition {
+  color: #CD7F32;
+  font-size: 1.2rem;
+}
+
+.rankPosition {
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 40px;
+  text-align: center;
+  color: var(--background-color);
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.nickname {
+  font-weight: bold;
+  color: var(--background-color); /* Changed to background color */
+  font-size: 1.1rem;
+}
+
+.username {
+  color: var(--background-color); /* Changed to background color */
+  opacity: 0.8;
+  font-size: 0.9rem;
+  flex-basis: 150px;
+  text-align: right;
+}
+
+.value {
+  font-weight: bold;
+  color: var(--background-color);
+  margin-left: 20px;
+  width: auto;
+  text-align: right;
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.usernameLink {
+  color: var(--background-color); /* Changed to background color */
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.usernameLink:hover {
+  color: var(--background-color);
+  opacity: 1;
+  text-decoration: underline;
+  transform: translateX(3px);
+}
+
+.usernameLink::after {
+  content: '→';
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.usernameLink:hover::after {
+  opacity: 1;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--background-color); /* Changed to background color */
+  font-style: italic;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  margin: 20px 0;
+}
+
+.error {
+  color: var(--error-color);
+  text-align: center;
+  padding: 20px;
+  background: var(--error-light-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--error-light-border);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .rankSection {
+    background-color: var(--accent-color); /* Bison Hide in dark mode */
+  }
+
+  .rankSection h2,
+  .nickname,
+  .username,
+  .value,
+  .rankPosition,
+  .emptyState,
+  .usernameLink {
+    color: var(--background-color); /* Woody Brown in dark mode */
+  }
+
+  .rankItem:hover {
+    background-color: rgba(60, 42, 48, 0.2); /* Woody Brown with transparency */
+  }
+
+  .value {
+    background: rgba(60, 42, 48, 0.2); /* Woody Brown with transparency */
+  }
+
+  .rankPosition {
+    background: rgba(60, 42, 48, 0.2); /* Woody Brown with transparency */
+  }
+
+  .usernameLink:hover {
+    color: var(--background-color); /* Woody Brown */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ranksPage {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .rankSection {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .rankItem {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .rankPosition {
+    order: 1;
+  }
+
+  .userInfo {
+    order: 2;
+    flex-basis: calc(100% - 50px);
+    margin-left: 0;
+  }
+
+  .value {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .username {
+    flex-basis: auto;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .rankSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .nickname {
+    font-size: 1rem;
+  }
+
+  .value {
+    font-size: 1rem;
+  }
+
+  .rankItem {
+    padding: 10px 0;
+  }
+}

@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+# Mountains Mountaineering App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+I made this web app to practice what I learned about React, and rehearse my JavaScript knowledge. I wanted to create something that I would use myself, so I chose one of my favourite hobbies as a topic. About halfway through the creation process I realized that this is going to require more than my current level - but this is how one learns, right? AI was used during the development process.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+*   User authentication (Login, Signup)
+*   User profiles (viewing own and public profiles)
+*   Mountain listings with detailed information
+*   Wishlist functionality to save desired climbs
+*   Ability to mark mountains as summited to track achievements
+*   Users can upload new mountains to the database
+*   Ranking system for users based on highest point achieved and most summits
+*   Search functionality for mountains and users
+*   Admin functionalities for managing content and users (if applicable and implemented)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+*   **React:** A JavaScript library for building user interfaces.
+*   **React Context API:** For robust global state management (e.g., `UserContext`).
+*   **CSS Modules:** For component-scoped styling to prevent style conflicts.
+*   **JavaScript (ES6+):** Modern JavaScript features for cleaner and more efficient code.
 
-### `npm test`
+### Backend
+*   **Node.js:** JavaScript runtime environment for the server-side logic.
+*   **Express.js:** A fast, unopinionated, minimalist web framework for Node.js, used for building the REST API.
+*   **JSON Web Tokens (JWT):** For secure, stateless authentication between the client and server.
+*   **Bcrypt.js:** A library used for hashing passwords to ensure they are stored securely.
+*   **Multer:** Node.js middleware for handling `multipart/form-data`, primarily used for file uploads (profile pictures, mountain images).
+*   **`fs` / `fs/promises`:** Node.js built-in file system modules for asynchronous file operations like reading, writing, and managing uploaded files.
+*   **`cors`:** A Node.js package providing middleware to enable Cross-Origin Resource Sharing, allowing the frontend to communicate with the backend from a different origin.
+*   **`dotenv`:** A module that loads environment variables from a `.env` file into `process.env`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Data Storage
+*   **File-based JSON:** User data and mountain details are persisted in `.json` and `.js` files located in the `backend/data` directory. This is a lightweight solution suitable for smaller projects or development environments.
 
-### `npm run build`
+## Installation and Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get this project up and running on your local machine, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the Repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+First, clone the project repository from GitHub:
 
-### `npm run eject`
+```bash
+git clone https://github.com/YOUR_USERNAME/mountains.git # Replace with your actual repository URL
+cd mountains
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Backend Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The backend server manages user authentication, mountain data, and image uploads.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+a.  **Navigate to the backend directory:**
+    ```bash
+    cd backend
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+b.  **Install backend dependencies:**
+    ```bash
+    npm install
+    ```
 
-## Learn More
+c.  **Create a `.env` file:**
+    Create a new file named `.env` in the `mountains/backend` directory. This file will store sensitive environment variables. Copy the following content and fill in your actual secret keys and desired port:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```
+    PORT=5000
+    JWT_SECRET=your_super_secret_jwt_key_here # **IMPORTANT**: Use a strong, unique key for production!
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+d.  **Run the backend server:**
+    ```bash
+    node server.js
+    # Alternatively, if a start script is defined in package.json (check backend/package.json for "scripts" section):
+    # npm start
+    ```
+    The backend server should now be running, typically accessible at `http://localhost:5000` (or the port you configured).
 
-### Code Splitting
+### 3. Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The frontend is the React application that users interact with.
 
-### Analyzing the Bundle Size
+a.  **Navigate back to the project root:**
+    ```bash
+    cd .. 
+    # Your frontend (React app) is located in the root 'mountains' directory.
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+b.  **Install frontend dependencies:**
+    ```bash
+    npm install
+    ```
 
-### Making a Progressive Web App
+c.  **Create a `.env.local` file (if needed for production or specific environments):**
+    For local development, the `API_BASE_URL` in `src/config/api.js` usually defaults to `http://localhost:5000`. However, if you need to specify a different API URL (e.g., for mobile testing with your machine's IP address or for a production deployment), create a file named `.env.local` in the root `mountains` directory (same level as `package.json`).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    *Example `.env.local` content:*
+    ```
+    REACT_APP_API_URL=http://192.168.32.201:5000 
+    ```
+    **Important:** Replace `192.168.32.201` with the *actual IP address* of the machine running your backend server if you are testing from other devices on your local network (like a mobile phone). Ensure your backend server's firewall allows incoming connections on the specified port.
 
-### Advanced Configuration
+d.  **Run the frontend development server:**
+    ```bash
+    npm start
+    ```
+    Your React application should automatically open in your web browser, typically at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Usage
 
-### Deployment
+Once both the frontend and backend servers are running:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1.  **Browse Mountains:** Explore the list of available mountains.
+2.  **Sign Up / Log In:** Create an account or log in to access personalized features.
+3.  **Manage Your Profile:** View your profile, update your profile picture, and see your wishlist and summited mountains.
+4.  **Interact with Mountains:** Add mountains to your wishlist, mark them as summited, or even upload new mountains.
+5.  **View Ranks:** See who has achieved the highest points or summited the most mountains.
+6.  **Search:** Find specific mountains or users using the search bar.
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+We welcome contributions to the Mountains app! If you're interested in improving the project, please:
+
+1.  Fork the repository.
+2.  Create a new branch for your features or bug fixes.
+3.  Submit a pull request with a clear description of your changes.
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.

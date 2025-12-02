@@ -1,3 +1,305 @@
+:root {
+  /* ==========================================================================
+     Global Base Colors - Earth Tone Palette - light mode
+     ========================================================================== */
+  --primary-color-dark: #373a36;
+  --primary-color: #8a6a5b;
+  --accent-color: #d48166;
+  --text-color: #373a36;
+  --secondary-text-color: #5a5d59;
+  --tertiary-text-color: #7a7d79;
+  --light-text-color: #e6e2dd;
+  --background-color: #e6e2dd;
+  --background-alt: #d6d2cd;
+  --modal-bg-color: #f0ede8;
+  --border-color: #c6c2bd;
+  --border-dark: #a6a29d;
+  --button-disabled-bg: #b6b2ad;
+
+  /* Extended earth tone palette */
+  --earth-50: #f8f6f4;
+  --earth-100: #f0ede8;
+  --earth-200: #e6e2dd;
+  --earth-300: #d6d2cd;
+  --earth-400: #c6c2bd;
+  --earth-500: #a6a29d;
+  --earth-600: #86827d;
+  --earth-700: #66625d;
+  --earth-800: #46423d;
+  --earth-900: #373a36;
+
+  /* Terracotta variations */
+  --terracotta-light: #e8a28a;
+  --terracotta: #d48166;
+  --terracotta-dark: #b86146;
+
+  /* ==========================================================================
+     Global Status & Action Colors
+     ========================================================================== */
+  --error-color: #c44536;
+  --error-color-dark: #a33526;
+  --error-light-bg: #fdedea;
+  --error-light-border: #f9d5d0;
+  --gradient-color-one: #d48166;
+  --gradient-color-two: #b86146;
+  --filter-indicator-color: #d4a017;
+  --filter-badge-bg: #f5e9e4;
+  --filter-badge-color: #8a6a5b;
+  --filter-badge-border: #e8d9d2;
+  --btn-secondary-bg: #7a7d79;
+  --btn-secondary-hover-bg: #66625d;
+  --summited-btn-bg: var(--accent-color);
+  --summited-btn-hover-bg: #b86146;
+  --upload-more-btn-bg: #8a6a5b;
+  --upload-more-btn-hover-bg: #6a4a3b;
+  --upload-extra-btn-bg: #5a7d59;
+  --upload-extra-btn-hover-bg: #4a6d49;
+  --upload-extra-btn-disabled-bg: #a6a29d;
+
+  /* ==========================================================================
+     Global Overlays, Shadows & General UI Properties
+     ========================================================================== */
+  --dark-overlay-color: rgba(55, 58, 54, 0.5);
+  --dark-modal-overlay-color: rgba(55, 58, 54, 0.7);
+  --box-shadow: 0 2px 8px rgba(55, 58, 54, 0.08);
+  --box-shadow-medium: 0 4px 12px rgba(55, 58, 54, 0.12);
+  --text-shadow: 0 1px 2px rgba(55, 58, 54, 0.1);
+  --modal-box-shadow: 0 10px 30px rgba(55, 58, 54, 0.15);
+  --input-focus-shadow: 0 0 0 2px rgba(212, 129, 102, 0.2);
+  --border-radius: 8px;
+  --border-radius-small: 4px;
+
+  /* ==========================================================================
+     Component Specific Variables (using global variables where possible)
+     ========================================================================== */
+
+  /* Filter Component */
+  --filter-popup-overlay-bg: var(--dark-overlay-color);
+  --filter-popup-shadow: var(--modal-box-shadow);
+  --filter-header-border-color: var(--border-color);
+  --filter-header-text-color: var(--primary-color-dark); /* Charcoal for filter headers */
+  --close-button-color: var(--secondary-text-color);
+  --close-button-hover-bg: var(--earth-300);
+  --filter-label-color: var(--accent-color); /* Terracotta for filter labels */
+  --filter-select-border-color: var(--border-dark);
+  --radio-label-hover-bg: var(--earth-300);
+
+  /* Login/Signup Popup */
+  --modal-overlay-bg: var(--dark-modal-overlay-color);
+  --input-focus-border-color: var(--accent-color);
+  --error-popup-bg: var(--error-light-bg);
+  --error-popup-text-color: var(--error-color);
+  --error-popup-border: var(--error-light-border);
+  --login-prompt-border: var(--border-color);
+  --login-prompt-heading-color: var(--primary-color-dark); /* Charcoal for login headings */
+  --login-prompt-text-color: var(--secondary-text-color);
+  --login-prompt-btn-bg: var(--accent-color); /* Terracotta for buttons */
+  --login-prompt-btn-color: var(--light-text-color);
+  --login-prompt-btn-hover-bg: var(--gradient-color-two); /* Darker terracotta for hover */
+
+  /* Mountain Card */
+  --mountain-card-border: 1px solid var(--border-color);
+  --mountain-card-bg: var(--secondary-text-color);
+  --mountain-card-box-shadow-normal: var(--box-shadow);
+  --mountain-card-hover-box-shadow: var(--box-shadow-medium);
+  --mountain-card-title-color: var(--accent-color); /* Terracotta for mountain titles */
+  --mountain-card-text-color: var(--modal-bg-color);
+  --mountain-card-description-color: var(--earth-800); /* Dark warm grey for descriptions */
+  --mountain-card-click-hint-color: var(--accent-color); /* Terracotta for hints */
+
+  /* Mountain List & Upload Card */
+  --results-header-text-color: var(--primary-color-dark); /* Charcoal for results header */
+  --results-count-text-color: var(--secondary-text-color);
+  --results-count-bg: var(--earth-300);
+  --results-count-border: var(--border-color);
+  --active-filters-summary-color: var(--secondary-text-color);
+  --filters-applied-color: var(--accent-color); /* Terracotta for filter indicators */
+  --upload-card-dashed-border: 2px dashed var(--border-dark);
+  --upload-card-bg: var(--earth-200);
+  --upload-card-hover-border-color: var(--accent-color);
+  --upload-card-hover-bg: var(--earth-300);
+  --upload-card-text-color: var(--secondary-text-color);
+  --upload-icon-color: var(--accent-color); /* Terracotta for upload icons */
+  --upload-card-title-color: var(--primary-color-dark); /* Charcoal for upload titles */
+  --empty-state-text-color: var(--tertiary-text-color);
+  --upload-button-bg: var(--accent-color); /* Terracotta for upload buttons */
+  --upload-button-text-color: var(--light-text-color);
+  --upload-button-hover-bg: var(--gradient-color-two); /* Darker terracotta for hover */
+
+  /* Mountain Popup (Specific styles) */
+  --image-gallery-nav-button-bg: rgba(55, 58, 54, 0.7);
+  --image-gallery-nav-button-hover-bg: rgba(55, 58, 54, 0.9);
+  --modal-info-heading-color: var(--primary-color-dark); /* Charcoal for modal headings */
+  --detail-label-color: var(--tertiary-text-color);
+  --detail-value-color: var(--primary-color-dark); /* Charcoal for detail values */
+  --description-heading-color: var(--primary-color-dark); /* Charcoal for description headings */
+  --description-text-color: var(--secondary-text-color); /* Medium charcoal for description text */
+  --wishlist-btn-bg: var(--accent-color); /* Terracotta for wishlist */
+  --wishlist-btn-color: var(--light-text-color);
+  --disabled-btn-bg: var(--earth-500);
+  --difficulty-info-link-color: var(--accent-color); /* Terracotta for links */
+  --difficulty-info-link-hover-color: var(--gradient-color-two); /* Darker terracotta for hover */
+  --upload-extra-images-section-border: var(--border-color);
+  --upload-extra-images-heading-color: var(--primary-color-dark); /* Charcoal for upload headings */
+  --file-input-bg: var(--earth-100);
+  --new-image-preview-border: var(--border-color);
+  --new-image-preview-bg: var(--modal-bg-color);
+  --new-image-preview-shadow: 0 1px 3px rgba(55, 58, 54, 0.08);
+}
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ==========================================================================
+       Global Base Colors - Woody Dark Palette (DARK MODE)
+       ========================================================================== */
+    --primary-color-dark: #EAE4D2; /* White Rock - light text for dark mode */
+    --primary-color: #C5B6A6; /* Bison Hide - medium light brown for secondary elements */
+    --accent-color: #C5B6A6; /* Bison Hide as accent (softer than terracotta for dark mode) */
+    --text-color: #EAE4D2; /* White Rock for primary text */
+    --secondary-text-color: #C5B6A6; /* Bison Hide for secondary text */
+    --tertiary-text-color: #79676C; /* Spicy Pink for subtle text */
+    --light-text-color: #3C2A30; /* Woody Brown for text on light elements */
+    --background-color: #3C2A30; /* Woody Brown - dark warm brown background */
+    --background-alt: #2C1A20; /* Darker warm brown for alternate backgrounds */
+    --modal-bg-color: #5D4C4B; /* Don Juan - medium dark brown for modals */
+    --border-color: #5D4C4B; /* Don Juan for borders */
+    --border-dark: #79676C; /* Spicy Pink for stronger borders */
+    --button-disabled-bg: #5D4C4B; /* Don Juan for disabled buttons */
+
+    /* Extended dark woody palette */
+    --earth-50: #2C1A20;
+    --earth-100: #3C2A30;
+    --earth-200: #4C3A40;
+    --earth-300: #5D4C4B;
+    --earth-400: #79676C;
+    --earth-500: #958386;
+    --earth-600: #B19FA2;
+    --earth-700: #C5B6A6;
+    --earth-800: #D9CCBE;
+    --earth-900: #EAE4D2;
+
+    /* Accent variations for dark mode */
+    --terracotta-light: #D9CCBE;
+    --terracotta: #C5B6A6;
+    --terracotta-dark: #B19FA2;
+
+    /* ==========================================================================
+       Global Status & Action Colors (DARK MODE)
+       ========================================================================== */
+    --error-color: #e57373; /* Softer red for dark mode */
+    --error-color-dark: #ef5350; /* Lighter red for error hovers */
+    --error-light-bg: rgba(229, 115, 115, 0.15); /* Transparent red background */
+    --error-light-border: rgba(229, 115, 115, 0.3); /* Transparent red border */
+    --gradient-color-one: #C5B6A6; /* Bison Hide for primary actions */
+    --gradient-color-two: #B19FA2; /* Lighter purple-brown for hovers */
+    --filter-indicator-color: #FFB74D; /* Softer gold for filter indicators */
+    --filter-badge-bg: rgba(197, 182, 166, 0.15); /* Transparent Bison Hide for filter badges */
+    --filter-badge-color: #C5B6A6; /* Bison Hide for filter badge text */
+    --filter-badge-border: rgba(197, 182, 166, 0.3); /* Transparent Bison Hide for borders */
+    --btn-secondary-bg: #5D4C4B; /* Don Juan for secondary buttons */
+    --btn-secondary-hover-bg: #79676C; /* Spicy Pink for hovers */
+    --summited-btn-bg: var(--accent-color); /* Bison Hide for summited actions */
+    --summited-btn-hover-bg: #B19FA2; /* Lighter for hover */
+    --upload-more-btn-bg: #79676C; /* Spicy Pink for upload actions */
+    --upload-more-btn-hover-bg: #958386; /* Lighter pink-brown for hovers */
+    --upload-extra-btn-bg: #6D8C7D; /* Muted green-brown for extra upload buttons */
+    --upload-extra-btn-hover-bg: #8DAC9D; /* Lighter green-brown for hovers */
+    --upload-extra-btn-disabled-bg: #5D4C4B; /* Don Juan for disabled buttons */
+
+    /* ==========================================================================
+       Global Overlays, Shadows & General UI Properties (DARK MODE)
+       ========================================================================== */
+    --dark-overlay-color: rgba(28, 18, 24, 0.7); /* Very dark transparent overlay */
+    --dark-modal-overlay-color: rgba(18, 10, 16, 0.85); /* Near-black for modal overlays */
+    --box-shadow: 0 2px 10px rgba(18, 10, 16, 0.3); /* Deeper shadow */
+    --box-shadow-medium: 0 4px 15px rgba(18, 10, 16, 0.4); /* Medium deep shadow */
+    --text-shadow: 0 1px 3px rgba(18, 10, 16, 0.5); /* Text shadow for better readability */
+    --modal-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); /* Strong shadow for modals */
+    --input-focus-shadow: 0 0 0 2px rgba(197, 182, 166, 0.3); /* Translucent Bison Hide for input focus */
+    --border-radius: 8px; /* Standard border radius */
+    --border-radius-small: 4px; /* Smaller border radius */
+
+    /* ==========================================================================
+       Component Specific Variables (DARK MODE)
+       ========================================================================== */
+
+    /* Filter Component */
+    --filter-popup-overlay-bg: var(--dark-overlay-color);
+    --filter-popup-shadow: var(--modal-box-shadow);
+    --filter-header-border-color: var(--border-dark);
+    --filter-header-text-color: var(--primary-color-dark); /* White Rock for filter headers */
+    --close-button-color: var(--secondary-text-color);
+    --close-button-hover-bg: var(--earth-400);
+    --filter-label-color: var(--accent-color); /* Bison Hide for filter labels */
+    --filter-select-border-color: var(--border-dark);
+    --radio-label-hover-bg: var(--earth-400);
+
+    /* Login/Signup Popup */
+    --modal-overlay-bg: var(--dark-modal-overlay-color);
+    --input-focus-border-color: var(--accent-color);
+    --error-popup-bg: var(--error-light-bg);
+    --error-popup-text-color: var(--error-color);
+    --error-popup-border: var(--error-light-border);
+    --login-prompt-border: var(--border-color);
+    --login-prompt-heading-color: var(--primary-color-dark); /* White Rock for login headings */
+    --login-prompt-text-color: var(--secondary-text-color);
+    --login-prompt-btn-bg: var(--accent-color); /* Bison Hide for buttons */
+    --login-prompt-btn-color: var(--light-text-color);
+    --login-prompt-btn-hover-bg: var(--gradient-color-two); /* Lighter for hover */
+
+    /* Mountain Card */
+    --mountain-card-border: 1px solid var(--border-color);
+    --mountain-card-bg: var(--earth-300);
+    --mountain-card-box-shadow-normal: var(--box-shadow);
+    --mountain-card-hover-box-shadow: var(--box-shadow-medium);
+    --mountain-card-title-color: var(--accent-color); /* Bison Hide for mountain titles */
+    --mountain-card-text-color: var(--secondary-text-color);
+    --mountain-card-description-color: var(--earth-800); /* Light beige for descriptions */
+    --mountain-card-click-hint-color: var(--accent-color); /* Bison Hide for hints */
+
+    /* Mountain List & Upload Card */
+    --results-header-text-color: var(--primary-color-dark); /* White Rock for results header */
+    --results-count-text-color: var(--secondary-text-color);
+    --results-count-bg: var(--earth-400);
+    --results-count-border: var(--border-color);
+    --active-filters-summary-color: var(--secondary-text-color);
+    --filters-applied-color: var(--accent-color); /* Bison Hide for filter indicators */
+    --upload-card-dashed-border: 2px dashed var(--border-dark);
+    --upload-card-bg: var(--earth-200);
+    --upload-card-hover-border-color: var(--accent-color);
+    --upload-card-hover-bg: var(--earth-300);
+    --upload-card-text-color: var(--secondary-text-color);
+    --upload-icon-color: var(--accent-color); /* Bison Hide for upload icons */
+    --upload-card-title-color: var(--primary-color-dark); /* White Rock for upload titles */
+    --empty-state-text-color: var(--tertiary-text-color);
+    --upload-button-bg: var(--accent-color); /* Bison Hide for upload buttons */
+    --upload-button-text-color: var(--light-text-color);
+    --upload-button-hover-bg: var(--gradient-color-two); /* Lighter for hover */
+
+    /* Mountain Popup (Specific styles) */
+    --image-gallery-nav-button-bg: rgba(18, 10, 16, 0.8);
+    --image-gallery-nav-button-hover-bg: rgba(18, 10, 16, 0.95);
+    --modal-info-heading-color: var(--primary-color-dark); /* White Rock for modal headings */
+    --detail-label-color: var(--tertiary-text-color);
+    --detail-value-color: var(--primary-color-dark); /* White Rock for detail values */
+    --description-heading-color: var(--primary-color-dark); /* White Rock for description headings */
+    --description-text-color: var(--secondary-text-color); /* Bison Hide for description text */
+    --wishlist-btn-bg: var(--accent-color); /* Bison Hide for wishlist */
+    --wishlist-btn-color: var(--light-text-color);
+    --disabled-btn-bg: var(--earth-400);
+    --difficulty-info-link-color: var(--accent-color); /* Bison Hide for links */
+    --difficulty-info-link-hover-color: var(--gradient-color-two); /* Lighter for hover */
+    --upload-extra-images-section-border: var(--border-dark);
+    --upload-extra-images-heading-color: var(--primary-color-dark); /* White Rock for upload headings */
+    --file-input-bg: var(--earth-200);
+    --new-image-preview-border: var(--border-dark);
+    --new-image-preview-bg: var(--earth-300);
+    --new-image-preview-shadow: 0 1px 3px rgba(18, 10, 16, 0.2);
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +307,50 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  background-color: var(--earth-300);
+  padding: 2px 4px;
+  border-radius: var(--border-radius-small);
+  color: var(--terracotta-dark);
+  border: 1px solid var(--earth-400);
 }
+
+* {
+  box-sizing: border-box;
+}
+
+/* Optional utility classes for the earth tone palette */
+.bg-earth-50 { background-color: var(--earth-50); }
+.bg-earth-100 { background-color: var(--earth-100); }
+.bg-earth-200 { background-color: var(--earth-200); }
+.bg-earth-300 { background-color: var(--earth-300); }
+.bg-earth-400 { background-color: var(--earth-400); }
+.bg-earth-500 { background-color: var(--earth-500); }
+
+.text-earth-600 { color: var(--earth-600); }
+.text-earth-700 { color: var(--earth-700); }
+.text-earth-800 { color: var(--earth-800); }
+.text-earth-900 { color: var(--earth-900); }
+
+.border-earth-200 { border-color: var(--earth-200); }
+.border-earth-300 { border-color: var(--earth-300); }
+.border-earth-400 { border-color: var(--earth-400); }
+
+/* Terracotta utilities */
+.bg-terracotta { background-color: var(--terracotta); }
+.bg-terracotta-light { background-color: var(--terracotta-light); }
+.bg-terracotta-dark { background-color: var(--terracotta-dark); }
+
+.text-terracotta { color: var(--terracotta); }
+.text-terracotta-light { color: var(--terracotta-light); }
+.text-terracotta-dark { color: var(--terracotta-dark); }
+
+.border-terracotta { border-color: var(--terracotta); }
+.border-terracotta-light { border-color: var(--terracotta-light); }
+.border-terracotta-dark { border-color: var(--terracotta-dark); }

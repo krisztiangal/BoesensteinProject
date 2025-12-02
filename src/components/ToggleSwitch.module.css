@@ -1,0 +1,60 @@
+.switchContainer {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  height: 40px;
+  width: 420px; /* Adjusted for three options (3 * 140px) */
+  background: var(--background-color);
+  border-color: var(--border-color);
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switchOption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33.33%; /* Each option takes one-third */
+  height: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  z-index: 2;
+  transition: color 0.3s ease-in-out;
+  user-select: none;
+}
+
+.switchOption.active {
+  color: var(--light-text-color);
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 33.33%; /* Slider width for one-third */
+  background: var(--primary-color);
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+  box-shadow: var(--box-shadow);
+}
+
+.slider.mid {
+  transform: translateX(100%); /* Move to middle for 'profile' */
+}
+
+.slider.right {
+  transform: translateX(200%); /* Move to right for 'ranks' */
+}
+@media (max-width: 768px) {
+  .switchContainer {
+    width: 90vw;
+    margin-bottom: 2vh;
+  }
+}
