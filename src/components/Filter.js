@@ -22,7 +22,10 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
     <div className={styles.filterContainer}>
       {/* ------------------------- Filter Trigger Button ------------------------- */}
       <button className={styles.filterTriggerBtn} onClick={togglePopup}>
-        🔍 Filter or sort here
+        <svg style={{height: '1.5rem', width: '1.5rem'}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+        </svg>
+        Filter or sort here
         {Object.values(filter).some(value => value !== '' && value !== null) && (
           <span className={styles.filterIndicator}>•</span>
         )}
@@ -40,7 +43,7 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
             <div className={styles.filterPopupContent}>
               {/* Country Filter */}
               <div className={styles.filterGroup}>
-                <label className={styles.filterLabel}>📍 Country:</label>
+                <label className={styles.filterLabel} style={{ marginTop: '-2rem' }}>📍 Country:</label>
                 <select
                   value={filter.country}
                   onChange={(e) => onFilterChange('country', e.target.value)}
@@ -124,7 +127,7 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
 
                 {/* ---------------------- Sort By Height Filter --------------------------- */}
                 <div className={styles.filterGroup}>
-                  <label className={styles.filterLabel}>⛰️ Sort By Height:</label>
+                  <label className={styles.filterLabel} style={{ marginTop: '2rem' }}>⛰️ Sort By Height:</label>
                   <div className={styles.radioGroup}>
                     <label className={styles.radioLabel}>
                       <input

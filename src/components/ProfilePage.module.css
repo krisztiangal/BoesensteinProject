@@ -140,41 +140,6 @@
   gap: 1.5rem;
 }
 
-.mountainCard {
-  background: var(--modal-bg-color);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--mountain-card-box-shadow-normal);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid var(--border-color);
-}
-
-.mountainCard:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--mountain-card-hover-box-shadow);
-}
-
-.mountainCard img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.cardContent {
-  padding: 1.5rem;
-}
-
-.cardContent h3 {
-  margin: 0 0 0.5rem 0;
-  color: var(--mountain-card-title-color);
-  font-size: 1.2rem;
-}
-
-.cardContent p {
-  margin: 0.25rem 0;
-  color: var(--mountain-card-text-color);
-}
-
 .equipment {
   font-size: 0.9rem;
   color: var(--tertiary-text-color);

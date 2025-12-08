@@ -196,6 +196,9 @@ function UploadPopup({ isOpen, onClose, onUploadSuccess }) {
                   className={styles.input}
                   placeholder="Enter height in meters"
                   min="1"
+                  max="8848"
+                  step="1"
+                  style={{ width: '100%' }}
                 />
               </div>
 
@@ -239,7 +242,7 @@ function UploadPopup({ isOpen, onClose, onUploadSuccess }) {
                   onChange={handleChange}
                   className={styles.checkboxInput}
                 />
-                <span className={styles.checkboxText}>⛏️ Special equipment needed</span>
+                <span className={styles.checkboxText}>Special equipment needed</span>
               </label>
             </div>
 

@@ -1,16 +1,19 @@
 .resultsHeader {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.resultsHeader h2 {
-  margin: 0 0 0.5rem 0;
-  color: var(--results-header-text-color);
-  display: flex;
+    margin-bottom: 0.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+}
+.filterWrapper {
+  grid-column: 3;
+  justify-self: end;
+  margin-right: 3vw;
+}
+.resultsHeader h2 {
+  grid-column: 2;
+  margin: 0.8rem 0 0.5rem 0;
+  color: var(--results-header-text-color);
+  text-align: center;
 }
 
 .resultsCount {
@@ -52,7 +55,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  margin: 2rem 3vw 2rem 3vw;
+  margin: 1rem 3vw 2rem 3vw;
 }
 /* ---------- styles for UploadCard ------------ */
 .uploadCard {
@@ -118,4 +121,17 @@
 
 .uploadBtn:hover {
   background: var(--upload-button-hover-bg);
+}
+/* -------------- MOBILE -------------------- */
+@media (max-width: 768px) {
+  .resultsHeader {
+    display: flex;
+    flex-direction: column-reverse; /* title below filter */
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .filterWrapper {
+    margin-right: 0; /* center it */
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../context/UserContext';
 import styles from './ProfileMenuPopup.module.css';
+import API_BASE_URL from '../config/api';
 
 function ProfileMenuPopup({ isOpen, onClose, onLogout }) {
   const [pfp, setPfp] = useState(null);
@@ -69,7 +70,8 @@ function ProfileMenuPopup({ isOpen, onClose, onLogout }) {
           {currentUser && (
             <div className={styles.currentUserInfo}>
               <img
-                src={currentUser.pfp ? `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${currentUser.pfp}` : "https://via.placeholder.com/50"}
+              src={currentUser.pfp && currentUser.pfp.trim() !== "" ?
+                `${API_BASE_URL}/${currentUser.pfp}` : "/placeholderP.png"}
                 alt={`${currentUser.nickname}'s Profile`}
                 className={styles.currentUserPfp}
               />

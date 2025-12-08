@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './PublicProfilePage.module.css'; // Assuming this CSS module exists
 import API_BASE_URL from '../config/api';
+import { Helmet } from 'react-helmet-async';
 
 const PublicProfilePage = ({ viewedUser, onOpenMountainPopup, onBackToRanks }) => {
   if (!viewedUser) {
@@ -18,7 +19,11 @@ const PublicProfilePage = ({ viewedUser, onOpenMountainPopup, onBackToRanks }) =
   const wishlistMountains = viewedUser.wishlist_mountains || [];
 
   return (
-    <div className={styles.publicProfilePage}>
+    <>
+      <Helmet>
+        <title>{viewedUser.nickname}'s Profile</title>
+      </Helmet>
+      <div className={styles.publicProfilePage}>
       <button onClick={onBackToRanks} className={styles.backButton}>
         &larr; Back to Ranks
       </button>
@@ -69,6 +74,7 @@ const PublicProfilePage = ({ viewedUser, onOpenMountainPopup, onBackToRanks }) =
         )}
       </div>
     </div>
+    </>
   );
 };
 

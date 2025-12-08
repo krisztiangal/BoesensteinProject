@@ -1,4 +1,43 @@
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('./fonts/comfortaa/Comfortaa-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('./fonts/comfortaa/Comfortaa-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('./fonts/comfortaa/Comfortaa-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Timeless */
+@font-face {
+  font-family: 'Timeless';
+  src: url('./fonts/timeless/Timeless.ttf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Timeless';
+  src: url('./fonts/timeless/Timeless-Bold.ttf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* ---------------- Update your CSS variables in :root ---------------- */
 :root {
+  --primary-font: 'Timeless', sans-serif;
+  --secondary-font: 'Comfortaa', serif;
   /* ==========================================================================
      Global Base Colors - Earth Tone Palette - light mode
      ========================================================================== */
@@ -302,9 +341,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--primary-font);
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
@@ -312,8 +350,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--secondary-font);
   background-color: var(--earth-300);
   padding: 2px 4px;
   border-radius: var(--border-radius-small);
@@ -321,6 +358,10 @@ code {
   border: 1px solid var(--earth-400);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--secondary-font);
+  /*font-weight: 400;*/
+}
 * {
   box-sizing: border-box;
 }

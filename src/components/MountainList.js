@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import MountainCard from './MountainCard';
 import MountainPopup from './MountainPopup';
 import UploadPopup from './UploadPopup';
@@ -9,6 +10,7 @@ import Pagination from './Pagination';
 
 function MountainList({ mountains, onOpenLogin, onOpenSignup, onUploadSuccess }) {
   const { currentUser } = useUser();
+  console.log('[MountainList] Current User:', currentUser);
   const [selectedMountain, setSelectedMountain] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isUploadPopupOpen, setIsUploadPopupOpen] = useState(false);
@@ -32,6 +34,7 @@ function MountainList({ mountains, onOpenLogin, onOpenSignup, onUploadSuccess })
     setIsPopupOpen(false);
   };
   const openUploadPopup = () => {
+      console.log('[MountainList] openUploadPopup called. Setting isUploadPopupOpen to true.');
       setIsUploadPopupOpen(true);
   };
   const closeUploadPopup = () => {
@@ -45,19 +48,7 @@ function MountainList({ mountains, onOpenLogin, onOpenSignup, onUploadSuccess })
   };
 
   // ----------------------- Empty state handling --------------
-    if (mountains.length === 0) {
-      return (
-        <div className={styles.emptyState}>
-          <h2>No Mountains Found</h2>
-          <p>There are no mountains to display yet.</p>
-          {currentUser && (
-            <button onClick={openUploadPopup} className={styles.uploadBtn}>
-              Upload the First Mountain
-            </button>
-          )}
-        </div>
-      );
-    }
+
 
 
   const heightCategories = {
@@ -142,46 +133,74 @@ function MountainList({ mountains, onOpenLogin, onOpenSignup, onUploadSuccess })
   };
 
   return (
-    <div>
-      <Filter
-        filter={filter}
-        onFilterChange={handleFilterChange}
-        onResetFilters={handleResetFilters}
-        mountains={mountains}
-        heightCategories={heightCategories}
-        sortOrder={sortOrder}
-        onSortChange={setSortOrder}
-      />
-      <h2>
-        {getFilteredTitle()}
-      </h2>
-      <div className={styles.mountainsGrid}>
-        {currentMountains.map(mountain => (
-          <MountainCard
-            key={mountain.id}
-            mountain={mountain}
-            onCardClick={handleCardClick}
-          />
-        ))}
-
-        {/*  ------------ Upload Card - Always show but handle click based on login ------------- */}
-        <div
-          className={`${styles.uploadCard} ${!currentUser ? styles.disabledUploadCard : ''}`}
-          onClick={currentUser ? openUploadPopup : onOpenLogin}
-        >
-          <div className={styles.uploadCardContent}>
-            <div className={styles.uploadIcon}>+</div>
-            <h3>Have now found your favourite?</h3>
-            <p>{currentUser ? 'Upload here to share with the community!' : 'Log in to upload your own mountains!'}</p>
-          </div>
+    <>
+      <Helmet>
+        <title>Browse Mountains | Bösenstein</title>
+        <meta name="description" content="Explore and filter mountains, view detailed info, and share your climbs with the community." />
+      </Helmet>
+      <div>
+      <div className={styles.resultsHeader}>
+        <h2 className={styles.title}>{getFilteredTitle()}</h2>
+        <div className={styles.filterWrapper}>
+          <Filter
+          filter={filter}
+          onFilterChange={handleFilterChange}
+          onResetFilters={handleResetFilters}
+          mountains={mountains}
+          heightCategories={heightCategories}
+          sortOrder={sortOrder}
+          onSortChange={setSortOrder}
+        />
         </div>
       </div>
+      {mountains.length === 0 ? (
+        <div className={styles.emptyState}>
+          <h2>No Mountains Found</h2>
+          <p>There are no mountains to display yet.</p>
+          {currentUser && (
+            <button onClick={openUploadPopup} className={styles.uploadBtn}>
+              Upload the First Mountain
+            </button>
+          )}
+        </div>
+      ) : (
+        <>
+          <div className={styles.mountainsGrid}>
+            {currentMountains.map(mountain => (
+              <MountainCard
+                key={mountain.id}
+                mountain={mountain}
+                onCardClick={handleCardClick}
+              />
+            ))}
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+            {/*  ------------ Upload Card - Always show but handle click based on login ------------- */}
+            <div
+              className={`${styles.uploadCard} ${!currentUser ? styles.disabledUploadCard : ''}`}
+              onClick={() => {
+                console.log('[MountainList] Upload Card clicked. currentUser:', currentUser ? 'Logged In' : 'Not Logged In');
+                if (currentUser) {
+                  openUploadPopup();
+                } else {
+                  onOpenLogin();
+                }
+              }}
+            >
+              <div className={styles.uploadCardContent}>
+                <div className={styles.uploadIcon}>+</div>
+                <h3>Have now found your favourite?</h3>
+                <p>{currentUser ? 'Upload here to share with the community!' : 'Log in to upload your own mountains!'}</p>
+              </div>
+            </div>
+          </div>
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </>
+      )}
 
       {selectedMountain && (
         <MountainPopup
@@ -193,12 +212,14 @@ function MountainList({ mountains, onOpenLogin, onOpenSignup, onUploadSuccess })
         />
       )}
 
+      {console.log('[MountainList] isUploadPopupOpen before UploadPopup render:', isUploadPopupOpen)}
       <UploadPopup
         isOpen={isUploadPopupOpen}
         onClose={closeUploadPopup}
         onUploadSuccess={handleUploadSuccess}
     />
   </div>
+  </>
 );
 }
 

@@ -49,12 +49,12 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: var(--accent-color); /* Ensure content area also has accent color */
+  background-color: var(--background-color);
 }
 
 .cardContent h2 {
   margin: 0 0 0.75rem 0;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
   font-size: 1.5rem;
   line-height: 1.2;
   /*text-shadow: var(--text-shadow);*/
@@ -62,12 +62,11 @@
 
 .cardContent p {
   margin: 0.35rem 0;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
   opacity: 0.9;
   font-size: 0.95rem;
 }
 
-/* Specific styling for different text elements */
 .country {
   display: inline-block;
   background: rgba(255, 255, 255, 0.15);
@@ -75,14 +74,14 @@
   border-radius: 20px;
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .height {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
   margin: 0.5rem 0;
 }
 
@@ -94,13 +93,13 @@
   font-weight: 600;
   margin-top: 0.5rem;
   background: rgba(255, 255, 255, 0.2);
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
 }
 
 .description {
   font-size: 0.9rem;
   margin-top: 1rem !important;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
   opacity: 0.85;
   line-height: 1.4;
   flex-grow: 1;
@@ -109,7 +108,7 @@
 .clickHint {
   margin-top: 1rem;
   font-size: 0.85rem;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -136,14 +135,14 @@
   display: block;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
 }
 
 .statLabel {
   display: block;
   font-size: 0.75rem;
   opacity: 0.8;
-  color: var(--background-color); /* Use background color for text */
+  color: var(--background-color);
   margin-top: 0.25rem;
 }
 

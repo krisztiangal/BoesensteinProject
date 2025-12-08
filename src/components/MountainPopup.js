@@ -258,7 +258,7 @@ function MountainPopup({ mountain, isOpen, onClose, onOpenLogin, onOpenSignup })
               <div className={styles.detailItem}>
                 <span className={styles.label}>Equipment:</span>
                 <span className={styles.value}>
-                  {mountain.needsEquipment ? '⛏️ Special equipment needed' : '🚶 No special equipment'}
+                  {mountain.needsEquipment ? 'Special equipment needed' : 'No special equipment'}
                 </span>
               </div>
             </div>

@@ -1,4 +1,5 @@
 .switchContainer {
+  font-family: var(--secondary-font);
   position: relative;
   display: flex;
   margin: 0 auto;

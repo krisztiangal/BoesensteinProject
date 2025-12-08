@@ -31,6 +31,33 @@ function App() {
   const { currentUser, logout } = useUser();
   const isAdmin = currentUser?.role === 'admin'; // Derive isAdmin from currentUser's role
 
+  // Update document title based on current view
+  useEffect(() => {
+    let title = 'Browse Mountains | Bösenstein';
+    switch (currentView) {
+      case 'mountains':
+        title = 'Browse Mountains | Bösenstein';
+        break;
+      case 'profile':
+        title = `${currentUser?.nickname || 'Profile'} — My Profile | Bösenstein`;
+        break;
+      case 'ranks':
+        title = 'Mountain Ranks | Bösenstein';
+        break;
+      case 'publicProfile':
+        title = `${viewedUser?.nickname || 'Profile'} | Bösenstein`;
+        break;
+      case 'searchResults':
+        title = `Search Results for "${searchQuery}" | Bösenstein`;
+        break;
+      case 'admin':
+        title = 'Admin Dashboard | Bösenstein';
+        break;
+      default: title = 'Bösenstein project';
+        break;
+    }
+    document.title = title;
+  }, [currentView, currentUser, viewedUser, searchQuery]);
   // Effect to manage body scroll when popups are open
   useEffect(() => {
     // Admin page can also prevent scroll if it has internal scrolling content, or if we want to treat it as a "full-page overlay"
@@ -260,7 +287,7 @@ function App() {
             /*style={{ width: '80px', height: '80px', marginTop: '-10px', marginBottom: '-10px' }}*/
           />
           <h1>Bösenstein project</h1>
-          {/*<p className={styles.subtitle}>No bitches? Come, get into mountaineering!</p>*/}
+          <p className={styles.subtitle}>v1.2</p>
         </div>
         <div className={styles.headerRight}>
           {isAdmin && ( // Only render admin button if user is an admin
@@ -286,7 +313,9 @@ function App() {
               }}
             />
             <button onClick={() => handleSearch(searchQuery)} className={styles.searchButton}>
-              Search
+              <svg style={{ width: '1.5rem', height: '1.5rem' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
             </button>
           </div>
           <nav className={styles.navigation}>
@@ -302,7 +331,7 @@ function App() {
               <div className={styles.loggedInUserInfo}>
                 <button onClick={openProfileMenu} className={styles.pfpButton}>
                   <img
-                    src={currentUser.pfp ? `${API_BASE_URL}/${currentUser.pfp}` : "https://via.placeholder.com/50"}
+                    src={currentUser.pfp && currentUser.pfp.trim() !== "" ? `${API_BASE_URL}/${currentUser.pfp}` : "/placeholderP.png"}
                     alt={`${currentUser.nickname}'s Profile`}
                     className={styles.pfpImage}
                   />

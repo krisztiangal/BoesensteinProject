@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './SearchResultsPage.module.css';
 import MountainCard from './MountainCard';
-import UserSearchResultCard from './UserSearchResultCard'; // Will create this next
+import UserSearchResultCard from './UserSearchResultCard';
+import { Helmet } from 'react-helmet-async';
 
 function SearchResultsPage({ searchResults, onOpenMountainPopup, onOpenPublicProfilePage, onBackToPreviousView }) {
   const { mountains, users } = searchResults;
@@ -15,6 +16,10 @@ function SearchResultsPage({ searchResults, onOpenMountainPopup, onOpenPublicPro
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Search Results</title>
+    </Helmet>
     <div className={styles.searchResultsPage}>
       <div className={styles.header}>
         <button onClick={onBackToPreviousView} className={styles.backButton}>
@@ -61,6 +66,7 @@ function SearchResultsPage({ searchResults, onOpenMountainPopup, onOpenPublicPro
         </>
       )}
     </div>
+    </>
   );
 }
 

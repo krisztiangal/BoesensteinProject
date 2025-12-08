@@ -1,3 +1,11 @@
+:root {
+  /* browse button and description textbox colors */
+  --browse-btn-bg-color: var(--primary-color-dark);
+  --browse-btn-text-color: var(--background-color);
+  --description-bg-color: var(--primary-color-dark);
+  --description-text-color: var(--background-color);
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -92,18 +100,14 @@
   gap: 0.5rem;
 }
 
-.formGroup label {
-  font-weight: 600;
-  color: var(--primary-color-dark);
-  font-size: 0.9rem;
-}
-
 .input {
   padding: 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  background: var(--primary-color-dark);
+  color: var(--background-color);
 }
 
 .input:focus {
@@ -111,14 +115,15 @@
   border-color: var(--gradient-color-one);
   box-shadow: var(--input-focus-shadow);
 }
-
 .fileInput {
   padding: 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   font-size: 1rem;
-  background: var(--background-color);
+  background: var(--primary-color-dark);
+  color: var(--background-color);
 }
+
 
 .checkboxLabel {
   display: flex;
@@ -129,6 +134,7 @@
 
 .checkboxInput {
   margin-right: 0.75rem;
+  background: var(--primary-color-dark);
 }
 
 .checkboxText {
@@ -138,13 +144,13 @@
 
 .imagePreview {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 0.5rem;
   padding: 1rem;
   background: var(--background-color);
   border-radius: 6px;
-  justify-content: center; /* Center items if there's space */
+  justify-content: center;
 }
 
 .imagePreviewItem {
@@ -159,7 +165,7 @@
   box-shadow: var(--new-image-preview-shadow);
   font-size: 0.8rem;
   text-align: center;
-  max-width: 100px; /* Limit width of each item */
+  max-width: 100px;
 }
 
 .imagePreviewItem img {
@@ -171,6 +177,22 @@
 
 .imagePreviewItem span {
   word-break: break-all; /* Break long file names */
+}
+
+.textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--description-bg-color);
+  color: var(--description-text-color);
+  transition: border-color 0.2s;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--gradient-color-one);
+  box-shadow: var(--input-focus-shadow);
 }
 
 .submitBtn {
