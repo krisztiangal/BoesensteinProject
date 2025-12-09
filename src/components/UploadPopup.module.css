@@ -235,3 +235,12 @@
     padding: 1.5rem;
   }
 }
+@media (prefers-color-scheme: light) {
+  /* Lighter accent background for input fields in light mode only */
+  .input,
+  .fileInput,
+  .textarea {
+    background: var(--terracotta-light) !important; /* lighter variant of accent */
+    color: var(--primary-color-dark);               /* readable text on light bg */
+  }
+}

@@ -86,7 +86,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--accent-color);
 }
 
 .filterPopupHeader h3 {
@@ -122,7 +122,7 @@
   display: flex;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--accent-color);
   justify-content: flex-end;
 }
 
@@ -296,7 +296,7 @@
 .activeFilters {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--accent-color);
 }
 
 .activeFilters h4 {

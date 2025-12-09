@@ -43,7 +43,7 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
             <div className={styles.filterPopupContent}>
               {/* Country Filter */}
               <div className={styles.filterGroup}>
-                <label className={styles.filterLabel} style={{ marginTop: '-2rem' }}><svg style={{ width: '1.5rem', height: '1.5rem', marginBottom: '-0.3rem' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                <label className={styles.filterLabel}><svg style={{ width: '1.5rem', height: '1.5rem', marginBottom: '-0.3rem' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                   <path fillRule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clipRule="evenodd" />
                 </svg> Country:</label>
                 <select
@@ -78,19 +78,25 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
                     />
                     <span className={styles.radioText}>All Heights</span>
                   </label>
-                  {Object.entries(heightCategories).map(([key, category]) => (
-                    <label key={key} className={styles.radioLabel}>
-                      <input
-                        type="radio"
-                        name="heightCategory"
-                        value={key}
-                        checked={filter.heightCategory === key}
-                        onChange={(e) => onFilterChange('heightCategory', e.target.value)}
-                        className={styles.radioInput}
-                      />
-                      <span className={styles.radioText}>{category.label}</span>
-                    </label>
-                  ))}
+                  {Object.entries(heightCategories)
+                    .sort(([aKey], [bKey]) => {
+                      const a = aKey === 'baby' ? 0 : parseInt(aKey, 10);
+                      const b = bKey === 'baby' ? 0 : parseInt(bKey, 10);
+                      return b - a; // 8000 → 3000, then baby
+                    })
+                    .map(([key, category]) => (
+                      <label key={key} className={styles.radioLabel}>
+                        <input
+                          type="radio"
+                          name="heightCategory"
+                          value={key}
+                          checked={filter.heightCategory === key}
+                          onChange={(e) => onFilterChange('heightCategory', e.target.value)}
+                          className={styles.radioInput}
+                        />
+                        <span className={styles.radioText}>{category.label}</span>
+                      </label>
+                    ))}
                 </div>
               </div>
 
