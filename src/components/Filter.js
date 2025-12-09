@@ -43,7 +43,9 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
             <div className={styles.filterPopupContent}>
               {/* Country Filter */}
               <div className={styles.filterGroup}>
-                <label className={styles.filterLabel} style={{ marginTop: '-2rem' }}>📍 Country:</label>
+                <label className={styles.filterLabel} style={{ marginTop: '-2rem' }}><svg style={{ width: '1.5rem', height: '1.5rem', marginBottom: '-0.3rem' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                  <path fillRule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clipRule="evenodd" />
+                </svg> Country:</label>
                 <select
                   value={filter.country}
                   onChange={(e) => onFilterChange('country', e.target.value)}
@@ -60,7 +62,10 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
 
               {/* ---------------------- Height Category Filter --------------------------- */}
               <div className={styles.filterGroup}>
-                <label className={styles.filterLabel}>📏 Height Category:</label>
+                <label className={styles.filterLabel}><svg style={{ width: '1.5rem', height: '1.5rem', marginBottom: '-0.3rem' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                  <path fillRule="evenodd" d="M11.47 10.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 12.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M11.47 4.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 6.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z" clipRule="evenodd" />
+                </svg> Height Category:</label>
                 <div className={styles.radioGroup}>
                   <label className={styles.radioLabel}>
                     <input
@@ -91,7 +96,7 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
 
               {/* ---------------------- Equipment Needs Filter --------------------------- */}
               <div className={styles.filterGroup}>
-                <label className={styles.filterLabel}>🎒 Equipment Needs:</label>
+                <label className={styles.filterLabel}>Equipment Needs:</label>
                 <div className={styles.radioGroup}>
                   <label className={styles.radioLabel}>
                     <input
@@ -101,7 +106,7 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
                       onChange={() => onFilterChange('needsEquipment', null)}
                       className={styles.radioInput}
                     />
-                    <span className={styles.radioText}>All Equipment Types</span>
+                    <span className={styles.radioText}>Any</span>
                   </label>
                   <label className={styles.radioLabel}>
                     <input
@@ -111,7 +116,7 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
                       onChange={() => onFilterChange('needsEquipment', true)}
                       className={styles.radioInput}
                     />
-                    <span className={styles.radioText}>⛏️ Needs Special Equipment</span>
+                    <span className={styles.radioText}>Needs equipment</span>
                   </label>
                   <label className={styles.radioLabel}>
                     <input
@@ -121,13 +126,15 @@ function Filter({ filter, onFilterChange, onResetFilters, mountains, heightCateg
                       onChange={() => onFilterChange('needsEquipment', false)}
                       className={styles.radioInput}
                     />
-                    <span className={styles.radioText}>🚶 No Special Equipment</span>
+                    <span className={styles.radioText}>Easy peasy</span>
                   </label>
                 </div>
 
                 {/* ---------------------- Sort By Height Filter --------------------------- */}
                 <div className={styles.filterGroup}>
-                  <label className={styles.filterLabel} style={{ marginTop: '2rem' }}>⛰️ Sort By Height:</label>
+                  <label className={styles.filterLabel} style={{ marginTop: '2rem' }}><svg style={{ width: '1.5rem', height: '1.5rem', marginBottom: '-0.3rem' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                    <path d="M6 12a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 1 1 1.5 0v7.5A.75.75 0 0 1 6 12ZM18 12a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 1 1.5 0v7.5A.75.75 0 0 1 18 12ZM6.75 20.25v-1.5a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 0 1.5 0ZM18.75 18.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 1.5 0ZM12.75 5.25v-1.5a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 0 1.5 0ZM12 21a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 1 1.5 0v7.5A.75.75 0 0 1 12 21ZM3.75 15a2.25 2.25 0 1 0 4.5 0 2.25 2.25 0 0 0-4.5 0ZM12 11.25a2.25 2.25 0 1 1 0-4.5 2.25 2.25 0 0 1 0 4.5ZM15.75 15a2.25 2.25 0 1 0 4.5 0 2.25 2.25 0 0 0-4.5 0Z" />
+                  </svg> Sort By Height:</label>
                   <div className={styles.radioGroup}>
                     <label className={styles.radioLabel}>
                       <input

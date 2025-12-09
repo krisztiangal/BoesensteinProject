@@ -147,7 +147,7 @@ function ProfilePage({ mountains, onOpenLogin, onOpenSignup }) {
         <section className={styles.section}>
           <h2><svg style={{width: '1.5rem', height: '1.5rem', marginBottom: '-0.25rem'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
             <path fillRule="evenodd" d="M6.32 2.577a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 0 1-1.085.67L12 18.089l-7.165 3.583A.75.75 0 0 1 3.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93Z" clipRule="evenodd" />
-          </svg> My Wishlist ({wishlistMountains.length})</h2>
+          </svg> Wishlist ({wishlistMountains.length})</h2>
           {wishlistMountains.length > 0 ? (
             <div className={styles.mountainsGrid}>
               {wishlistMountains.map(mountain => (
@@ -171,7 +171,7 @@ function ProfilePage({ mountains, onOpenLogin, onOpenSignup }) {
           <h2><svg style={{width: '1.5rem', height: '1.5rem', marginBottom: '-0.25rem'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
             <path fillRule="evenodd" d="M7.502 6h7.128A3.375 3.375 0 0 1 18 9.375v9.375a3 3 0 0 0 3-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 0 0-.673-.05A3 3 0 0 0 15 1.5h-1.5a3 3 0 0 0-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6ZM13.5 3A1.5 1.5 0 0 0 12 4.5h4.5A1.5 1.5 0 0 0 15 3h-1.5Z" clipRule="evenodd" />
             <path fillRule="evenodd" d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 0 1 3 20.625V9.375Zm9.586 4.594a.75.75 0 0 0-1.172-.938l-2.476 3.096-.908-.907a.75.75 0 0 0-1.06 1.06l1.5 1.5a.75.75 0 0 0 1.116-.062l3-3.75Z" clipRule="evenodd" />
-          </svg> Summited Mountains ({summitedMountains.length})</h2>
+          </svg> Summited ({summitedMountains.length})</h2>
           {summitedMountains.length > 0 ? (
             <div className={styles.mountainsGrid}>
               {summitedMountains.map(mountain => (
@@ -194,7 +194,7 @@ function ProfilePage({ mountains, onOpenLogin, onOpenSignup }) {
         <section className={styles.section}>
           <h2><svg style={{width: '2rem', height: '2rem', marginBottom: '-0.25rem'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
             <path fillRule="evenodd" d="M10.5 3.75a6 6 0 0 0-5.98 6.496A5.25 5.25 0 0 0 6.75 20.25H18a4.5 4.5 0 0 0 2.206-8.423 3.75 3.75 0 0 0-4.133-4.303A6.001 6.001 0 0 0 10.5 3.75Zm2.03 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v4.94a.75.75 0 0 0 1.5 0v-4.94l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clipRule="evenodd" />
-          </svg> Uploaded Mountains ({uploadedMountains.length})</h2>
+          </svg> Uploaded ({uploadedMountains.length})</h2>
           {uploadedMountains.length > 0 ? (
             <div className={styles.mountainsGrid}>
               {uploadedMountains.map(mountain => (
